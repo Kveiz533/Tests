@@ -1,4 +1,4 @@
-name: CI
+name: Python Tests
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }} # Установка двух необходимых runner-ов
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -17,12 +17,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Python
+    - name: Set up Python # Установка версии Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.8' 
 
-    - name: Install dependencies
+    - name: Install dependencies # Установка всех необходимых библиотек из requirements.txt 
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt 
