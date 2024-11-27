@@ -6,7 +6,7 @@ from circle import *
 
 class RectangleTestCase(unittest.TestCase):
     def test_zero_area_perimeter(self):
-        res = rc_area(10, 0)
+        res = rc_area(10, 10)
         self.assertEqual(res, 0)
 
         res = rc_area(0, 78)
